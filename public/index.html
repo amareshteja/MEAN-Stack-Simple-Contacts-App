@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="contactsApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello world</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+<div class="container" ng-controller="ContactCtrl">
+    <h1>Contacts App!</h1>
+    <table>
+        <thead>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input class="form-control" type="text" ng-model="contact.name"></td>
+            <td><input class="form-control" type="text" ng-model="contact.email"></td>
+            <td><input class="form-control" type="text" ng-model="contact.phone"></td>
+            <td><button type="submit" class="btn btn-primary" ng-click="submitData()">Add contact</button></td>
+            <td><button type="submit" class="btn btn-primary" ng-click="updateData()">Update</button></td>
+        </tr>
+        <tr ng-repeat="x in contactList">
+            <td>{{x.name}}</td>
+            <td>{{x.email}}</td>
+            <td>{{x.phone}}</td>
+            <td><button class="btn btn-primary" type="submit" ng-click="edit(x._id)">Edit</button></td>
+            <td><button class="btn btn-danger" type="submit" ng-click="remove(x._id)">Remove</button></td>
+        </tr>
+        </tbody>
+    </table>
+    {{text}}
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="/javascripts/controller.js"></script>
+</body>
+</html>
